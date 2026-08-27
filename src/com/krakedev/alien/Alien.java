@@ -96,12 +96,41 @@ public class Alien {
 		String datos="\nTamaño: "+tamanio+
 						"\nColor: "+color+
 						"\nNúmero de ojos: "+ numeroOjos+
-						"\nNúmero de brazos: "+ numeroBrazos+
+						"\nNúmero de brazos 🦾: "+ numeroBrazos+
 						"\nNúmero de pies: "+numeroPies+
 						"\nPrecio por extremidad: $"+ precioExtremidad+
 						"\nPrecio por ojo: $"+precioOjo+
 						"\nPrecio del cuerpo: $"+precioCuerpo;
 		System.out.println("*******************"+datos+"\n||||||||||||||||||");
+	}
+	
+	//🦾 PARTE 7: EXTREMIDADES
+	//Método agregar barzos
+	public boolean agregarBrazos(int numeroBrazos) {
+		this.numeroBrazos+=numeroBrazos;
+		int brazosYpiernas=this.numeroBrazos+this.numeroPies;
+		if(brazosYpiernas<=10) {
+			
+			return true;
+			
+		}else {
+			this.numeroBrazos-=numeroBrazos;
+			return false;
+		}
+	}
+	
+	//Método agregar piernas
+	public boolean agregarPiernas(int numeroPies) {
+		this.numeroPies+=numeroPies;
+		int brazosYpiernas=this.numeroBrazos+this.numeroPies;
+		if(brazosYpiernas<=10) {
+			
+			return true;
+			
+		}else {
+			this.numeroPies-=numeroPies;
+			return false;
+		}
 	}
 
 }
