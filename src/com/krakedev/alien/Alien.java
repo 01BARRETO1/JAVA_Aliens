@@ -10,6 +10,9 @@ public class Alien {
 	private double precioExtremidad;
 	private double precioOjo;
 	private double precioCuerpo;
+	
+	//💰 PARTE 9: PRECIO TOTAL, atributo PrecioTotal
+	private double precioTotal=0;
 
 	// constructor
 	public Alien(int tamanio, String color) {
@@ -29,10 +32,12 @@ public class Alien {
 	}
 
 	// Crear métodos get para todos los atributos. No crear métodos set.
+	
 
 	public int getTamanio() {
 		return tamanio;
 	}
+
 
 	public String getColor() {
 		return color;
@@ -60,6 +65,10 @@ public class Alien {
 
 	public double getPrecioCuerpo() {
 		return precioCuerpo;
+	}
+	
+	public double getPrecioTotal() {
+		return precioTotal;
 	}
 
 	// Metodo Imprimir
@@ -95,12 +104,14 @@ public class Alien {
 		//
 		String datos="\nTamaño: "+tamanio+
 						"\nColor: "+color+
-						"\nNúmero de ojos: "+ numeroOjos+
+						"\nNúmero de ojos 👁️: "+ numeroOjos+
 						"\nNúmero de brazos 🦾: "+ numeroBrazos+
 						"\nNúmero de pies: "+numeroPies+
 						"\nPrecio por extremidad: $"+ precioExtremidad+
 						"\nPrecio por ojo: $"+precioOjo+
-						"\nPrecio del cuerpo: $"+precioCuerpo;
+						"\nPrecio del cuerpo: $"+precioCuerpo+
+						"\n__________________________"+
+						"\nPrecio Total: $"+precioTotal;
 		System.out.println("*******************"+datos+"\n||||||||||||||||||");
 	}
 	
@@ -110,7 +121,7 @@ public class Alien {
 		this.numeroBrazos+=numeroBrazos;
 		int brazosYpiernas=this.numeroBrazos+this.numeroPies;
 		if(brazosYpiernas>0 && brazosYpiernas<=10) {
-			
+			calcularPrecioTotal();
 			return true;
 			
 		}else {
@@ -124,7 +135,7 @@ public class Alien {
 		this.numeroPies+=numeroPies;
 		int brazosYpiernas=this.numeroBrazos+this.numeroPies;
 		if(brazosYpiernas>0 && brazosYpiernas<=10) {
-			
+			calcularPrecioTotal();
 			return true;
 			
 		}else {
@@ -140,17 +151,31 @@ public class Alien {
 		
 		int tamanioAlien=this.tamanio;
 		if(numeroOjos>0 && numeroOjos<=3 && tamanioAlien>=5 && tamanioAlien<=10) {
+			
 			this.numeroOjos=numeroOjos;
+			calcularPrecioTotal();
 			return true;
-		}else if(numeroOjos>=4 && numeroOjos<=5 && tamanioAlien>10 && tamanioAlien<=20) {
+		}else if(numeroOjos>0 && numeroOjos<=5 && tamanioAlien>10 && tamanioAlien<=20) {
 			this.numeroOjos=numeroOjos;
+			calcularPrecioTotal();
 			return true;
-		}else if(numeroOjos>=6 && numeroOjos<=7 && tamanioAlien>20 && tamanioAlien<=30) {
+		}else if(numeroOjos>0 && numeroOjos<=7 && tamanioAlien>20 && tamanioAlien<=30) {
 			this.numeroOjos=numeroOjos;
+			calcularPrecioTotal();
 			return true;
 		}else {
 			return false;
 		}
+	}
+	
+	//💰 PARTE 9: PRECIO TOTAL
+	//Método calcularPrecioTotal
+	public void calcularPrecioTotal() {
+		double extremidades=(this.numeroBrazos+this.numeroPies)*this.precioExtremidad;
+		double ojos=this.precioOjo*this.numeroOjos;
+		double suma=this.precioCuerpo+extremidades+ojos;
+		
+		this.precioTotal=suma;
 	}
 	
 
