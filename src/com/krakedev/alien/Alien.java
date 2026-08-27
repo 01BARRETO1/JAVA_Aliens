@@ -78,7 +78,7 @@ public class Alien {
         System.out.println(BLACK_BG + PURPLE + "      .-\"\"\"\"-." + RESET);
         System.out.println(BLACK_BG + PURPLE + "     /        \\" + RESET);
         System.out.println(BLACK_BG + GREEN  + "    |  .--. .--.|" + RESET);
-        System.out.println(BLACK_BG + RED    + "    | (oo  )( oo)|" + RESET);
+        System.out.println(BLACK_BG + RED    + "    | (👁️  )( 👁️)|" + RESET);
         System.out.println(BLACK_BG + GREEN  + "    |     ^^    |" + RESET);
         System.out.println(BLACK_BG + RED + "       \\  --  /" + RESET);
         System.out.println(BLACK_BG + GREEN  + "    |  '----'   |" + RESET);
@@ -105,11 +105,11 @@ public class Alien {
 	}
 	
 	//🦾 PARTE 7: EXTREMIDADES
-	//Método agregar barzos
+	//Método agregar brazos
 	public boolean agregarBrazos(int numeroBrazos) {
 		this.numeroBrazos+=numeroBrazos;
 		int brazosYpiernas=this.numeroBrazos+this.numeroPies;
-		if(brazosYpiernas<=10) {
+		if(brazosYpiernas>0 && brazosYpiernas<=10) {
 			
 			return true;
 			
@@ -123,7 +123,7 @@ public class Alien {
 	public boolean agregarPiernas(int numeroPies) {
 		this.numeroPies+=numeroPies;
 		int brazosYpiernas=this.numeroBrazos+this.numeroPies;
-		if(brazosYpiernas<=10) {
+		if(brazosYpiernas>0 && brazosYpiernas<=10) {
 			
 			return true;
 			
@@ -132,5 +132,26 @@ public class Alien {
 			return false;
 		}
 	}
+	
+	//👁️ PARTE 8: OJOS
+	//Método Agregar Ojos
+	
+	public boolean agregarOjos(int numeroOjos) {
+		
+		int tamanioAlien=this.tamanio;
+		if(numeroOjos>0 && numeroOjos<=3 && tamanioAlien>=5 && tamanioAlien<=10) {
+			this.numeroOjos=numeroOjos;
+			return true;
+		}else if(numeroOjos>=4 && numeroOjos<=5 && tamanioAlien>10 && tamanioAlien<=20) {
+			this.numeroOjos=numeroOjos;
+			return true;
+		}else if(numeroOjos>=6 && numeroOjos<=7 && tamanioAlien>20 && tamanioAlien<=30) {
+			this.numeroOjos=numeroOjos;
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 
 }
