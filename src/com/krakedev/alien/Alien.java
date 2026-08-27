@@ -78,7 +78,7 @@ public class Alien {
         System.out.println(BLACK_BG + PURPLE + "      .-\"\"\"\"-." + RESET);
         System.out.println(BLACK_BG + PURPLE + "     /        \\" + RESET);
         System.out.println(BLACK_BG + GREEN  + "    |  .--. .--.|" + RESET);
-        System.out.println(BLACK_BG + RED    + "    | (o  )(  o)|" + RESET); // ojos rojos
+        System.out.println(BLACK_BG + RED    + "    | (oo  )( oo)|" + RESET);
         System.out.println(BLACK_BG + GREEN  + "    |     ^^    |" + RESET);
         System.out.println(BLACK_BG + RED + "       \\  --  /" + RESET);
         System.out.println(BLACK_BG + GREEN  + "    |  '----'   |" + RESET);
